@@ -1,0 +1,24 @@
+services:
+  - type: web
+    name: csv-importer-backend
+    runtime: node
+    repo: https://github.com/krishbhuva03/ai-powered-csv-importer
+    rootDir: backend
+    buildCommand: npm install && npm run build
+    startCommand: npm start
+    envVars:
+      - key: GROQ_API_KEY
+        sync: false
+      - key: FRONTEND_URL
+        sync: false
+
+  - type: web
+    name: csv-importer-frontend
+    runtime: node
+    repo: https://github.com/krishbhuva03/ai-powered-csv-importer
+    rootDir: frontend
+    buildCommand: npm install && npm run build
+    startCommand: npm start
+    envVars:
+      - key: NEXT_PUBLIC_API_URL
+        sync: false
